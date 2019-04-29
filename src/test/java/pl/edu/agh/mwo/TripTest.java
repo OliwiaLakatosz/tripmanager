@@ -12,4 +12,12 @@ public class TripTest {
 		assertEquals("opis", trip.getDescription());
 	}
 
+	@Test
+    public void testAddPhoto() {
+	    Photo photo = new Photo();
+	    Trip trip = new Trip("nazwa", "opis");
+	    trip.addPhoto(photo);
+	    assertEquals(1, trip.getPhotos().size());
+    }
+
 }

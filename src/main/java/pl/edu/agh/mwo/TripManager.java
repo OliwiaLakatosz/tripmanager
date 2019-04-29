@@ -5,7 +5,7 @@ public class TripManager {
 	private HashMap<String,Trip> tripList;
 	
 	public TripManager() {
-		tripList = new HashMap<String,Trip>();
+		tripList = new HashMap<String, Trip>();
 	}
 	
 	public void add(Trip trip) throws TripAlreadyExistsException {
@@ -24,5 +24,14 @@ public class TripManager {
 	public void remove(String name) {
 		tripList.remove(name);
 	}
+
+//	public Trip find(String keyword) {
+//        for (String tripName :
+//                tripList.keySet()) {
+//            if (tripName.toLowerCase().contains(keyword.toLowerCase())) {
+//
+//            }
+//        }
+//	}
 	
 }
