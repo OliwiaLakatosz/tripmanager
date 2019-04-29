@@ -40,11 +40,21 @@ public class TripManagerTest {
 	}
 
 	@Test
-    public void testFindTrip() throws TripAlreadyExistsException {
+    public void testFindTripByTitle() throws TripAlreadyExistsException {
 	    Trip trip1 = new Trip("Awesome trip around the world",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
 	    tripManager.add(trip);
 	    tripManager.add(trip1);
 	    assertEquals(trip1, tripManager.findTrip("awesome"));
+    }
+
+    @Test
+    public void testFindTripByDescription() throws TripAlreadyExistsException {
+        Trip trip1 = new Trip("Awesome trip around the world",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+        tripManager.add(trip);
+        tripManager.add(trip1);
+        assertEquals(trip1, tripManager.findTrip("ELIT"));
+
     }
 }

@@ -28,7 +28,7 @@ public class TripManager {
 	public Trip findTrip(String keyword) {
         for (String tripName : tripList.keySet()) {
             if (tripName.toLowerCase().contains(keyword.toLowerCase()) ||
-                    tripList.get(tripName).getDescription().toLowerCase().contains(keyword)) {
+                    tripList.get(tripName).getDescription().toLowerCase().contains(keyword.toLowerCase())) {
                 return tripList.get(tripName);
             }
         }
