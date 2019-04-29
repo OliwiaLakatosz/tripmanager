@@ -25,13 +25,14 @@ public class TripManager {
 		tripList.remove(name);
 	}
 
-//	public Trip find(String keyword) {
-//        for (String tripName :
-//                tripList.keySet()) {
-//            if (tripName.toLowerCase().contains(keyword.toLowerCase())) {
-//
-//            }
-//        }
-//	}
-	
+	public Trip findTrip(String keyword) {
+        for (String tripName : tripList.keySet()) {
+            if (tripName.toLowerCase().contains(keyword.toLowerCase()) ||
+                    tripList.get(tripName).getDescription().toLowerCase().contains(keyword)) {
+                return tripList.get(tripName);
+            }
+        }
+        return null;
+	}
+
 }
