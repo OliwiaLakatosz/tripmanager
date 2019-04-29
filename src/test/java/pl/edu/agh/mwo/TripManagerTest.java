@@ -55,6 +55,11 @@ public class TripManagerTest {
         tripManager.add(trip);
         tripManager.add(trip1);
         assertEquals(trip1, tripManager.findTrip("ELIT"));
+    }
 
+    @Test
+    public void testNoMatchingTrip() throws TripAlreadyExistsException {
+	    tripManager.add(trip);
+        assertNull(tripManager.findTrip("ukulele"));
     }
 }
