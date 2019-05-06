@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 public class TripManagerTest {
 
 	TripManager tripManager;
@@ -45,7 +47,9 @@ public class TripManagerTest {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
 	    tripManager.add(trip);
 	    tripManager.add(trip1);
-	    assertEquals(trip1, tripManager.findTrip("awesome"));
+		List<Trip> results = tripManager.findTrip("awesome");
+	    assertEquals(1, results.size());
+	    assertEquals(trip1, results.get(0));
     }
 
     @Test
@@ -54,12 +58,18 @@ public class TripManagerTest {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
         tripManager.add(trip);
         tripManager.add(trip1);
-        assertEquals(trip1, tripManager.findTrip("ELIT"));
-    }
+		List<Trip> results = tripManager.findTrip("opis");
+		assertEquals(1, results.size());
+		assertEquals(trip, results.get(0));
+	}
 
     @Test
     public void testNoMatchingTrip() throws TripAlreadyExistsException {
 	    tripManager.add(trip);
-        assertNull(tripManager.findTrip("ukulele"));
+		Trip trip1 = new Trip("Awesome trip around the world",
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+	    tripManager.add(trip1);
+		List<Trip> results = tripManager.findTrip("ukulele");
+		assertEquals(0, results.size());
     }
 }
