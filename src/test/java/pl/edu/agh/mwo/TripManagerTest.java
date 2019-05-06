@@ -43,8 +43,9 @@ public class TripManagerTest {
 
 	@Test
     public void testFindTripByTitle() throws TripAlreadyExistsException {
-	    Trip trip1 = new Trip("Awesome trip around the world",
+	    Trip trip1 = new Trip("trip around the world",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+	    trip1.setName("Awesome trip around the world!");
 	    tripManager.add(trip);
 	    tripManager.add(trip1);
 		List<Trip> results = tripManager.findTrip("awesome");
@@ -56,9 +57,10 @@ public class TripManagerTest {
     public void testFindTripByDescription() throws TripAlreadyExistsException {
         Trip trip1 = new Trip("Awesome trip around the world",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+        trip.setDescription("lalalal codecove test test");
         tripManager.add(trip);
         tripManager.add(trip1);
-		List<Trip> results = tripManager.findTrip("opis");
+		List<Trip> results = tripManager.findTrip("codecove");
 		assertEquals(1, results.size());
 		assertEquals(trip, results.get(0));
 	}
